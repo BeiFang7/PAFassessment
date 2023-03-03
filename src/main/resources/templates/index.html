@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Funds Transfer</title>
+  </head>
+  <body>
+    <h1>Funds Transfer</h1>
+  
+    <form method="post" th-data-action="@{/transfer}" th-data-object="${transaction}">
+      <div>
+        <label for="fromAccount">From account:</label>
+        <select name="fromAccount" th-data-field="${transaction.fromAccount}">
+          <option value="">Select Account</option>
+          <option th-data-each="account:${accounts}" th-data-value="${account.accountId}" th-data-text="${account.name} +'(' + ${account.accountId} + ')' "></option>
+        </select>
+        <span th-data-if="${#fields.hasErrors('fromAccount')}" th-data-errors="${transaction.fromAccount}"></span>
+      </div>
+      <br><br>
+      <div>
+        <label for="toAccount">To account:</label>
+        <select name="toAccount" th-data-field="${transaction.toAccount}">
+          <option value="">Select Account</option>
+          <option th-data-each="account:${accounts}" th-data-value="${account.accountId}" th-data-text="${account.name} +'(' + ${account.accountId} + ')' "></option>
+        </select>
+        <span th-data-if="${#fields.hasErrors('toAccount')}" th-data-errors="${transaction.fromAccount}"></span>
+      </div>
+      <br><br>
+      <div>
+        <label for="amount">Amount:</label>
+        <input type="number" name="amount" step="0.01" min="10.00" th-data-field="${transaction.amount}">
+        <span th-data-if="${#fields.hasErrors('amount')}" th-data-errors="${transaction.amount}"></span>
+      </div>
+      <br><br>
+      <div>
+        <label for="comments">Comments:</label>
+        <textarea name="comments" th-data-field="${transaction.comments}"></textarea>
+      </div>
+      <br><br>
+      <div>
+        <button type="submit">Transfer</button>
+      </div>
+      <br><br>
+    
+
+    <div name="error"></div>
+    <label for="error">Error:</label>
+    <textarea name="error" rows="3" readonly>${error}</textarea>
+      
+    </form> 
+  </body>
+</html>

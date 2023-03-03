@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Successful Transfer</title>
+</head>
+<body>
+  <h2>Successful Transfer </h2>
+  <p data-th-object = "${transaction}">Your transfer of $<span data-th-text="${transaction.amount}"></span> from <span data-th-text="${transaction.fromAccount.name}"></span> (<span data-th-text="${transaction.fromAccount.accountId}"></span>) to <span data-th-text="${transaction.toAccount.name}"></span> (<span data-th-text="${transaction.toAccount.accountId}"></span>) is successful.</p>
+  <br><br>
+  <p>Transaction id is <span data-th-text="${transaction.transactionId}"></span></p>
+</body>
+</html>
