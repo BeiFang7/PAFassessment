@@ -45,36 +45,4 @@ public class FundsTransferController {
     return "success-transfer";
     
   }
-
-
-  // @PostMapping
-  // // to persist things across the entire flow of the application - use a session
-  // // use session to keep track of the line item
-  // public String postCart(@RequestBody MultiValueMap<String, String> form, Model model, HttpSession session){
-  //   List<LineItem> lineItems = (List<LineItem>) session.getAttribute("cart");
-  //   // if cart is empty, then iniatialise an empty list
-  //   if(null==lineItems){
-  //     lineItems = new LinkedList<>();
-  //     // set back to session with the same key
-  //     session.setAttribute("cart", lineItems);
-  //   }
-
-  //   String item = form.getFirst("item");
-  //   Integer quantity = Integer.parseInt(form.getFirst("quantity"));
-  //   // add lineitems in
-  //   lineItems.add(new LineItem(item, quantity));
-
-  //   // create an order
-  //   Order ord = new Order();
-  //   ord.setCustomerName(form.getFirst("name"));
-  //   ord.setLineItems(lineItems);
-
-  //   // this session is for the next page
-  //   session.setAttribute("checkoutCart", ord);
-  //   model.addAttribute("lineItems", lineItems);
-
-  //   // keep forwarding to the cart page, so is looping this page by adding more products
-  //   // session is necessary to save all the things you perform and pass to the next page
-  //   return "cart";
-  // }
 }
